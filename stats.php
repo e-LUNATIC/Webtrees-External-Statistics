@@ -1,4 +1,10 @@
 <?php
+/**
+ * webtrees: online genealogy
+ * Copyright (C) 2016 webtrees development team
+ * Copyright (C) 2017 oliver erben https://ollinet.org
+>.
+ */
 //Datenbank Einstellungen
 $pdo = new PDO('mysql:host=localhost;dbname=databasename', 'username', 'password');
 
