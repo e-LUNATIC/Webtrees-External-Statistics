@@ -11,6 +11,7 @@ $statement1->execute(array('@N.N.'));
 $row1 = $statement1->fetch();
 $zahl1 = $row['anzahl'];
 $zahl2 = $row1['doppelt'];
-$ergebnis = $zahl1 - $zahl2;
-echo "Anzahl von Personen im Stammbaum: $ergebnis";
+$personen = $zahl1 - $zahl2;
+//Translate "Anzahl von..." into your language. Total Individuals in your tree.
+echo "Anzahl von Personen im Stammbaum: $personen";
 ?>
