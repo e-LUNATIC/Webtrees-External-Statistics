@@ -22,26 +22,52 @@
  */
 //Datenbank Einstellungen
 $pdo = new PDO('mysql:host=localhost;dbname=databasename', 'username', 'password');
+
 //Anzahl der Personen im Stammbaum
-$statement = $pdo->prepare("SELECT COUNT(*) AS anzahl FROM wt_name WHERE n_type = ?");
-$statement->execute(array('NAME'));  
-$row = $statement->fetch();
-$statement1 = $pdo->prepare("SELECT COUNT(*) AS doppelt FROM wt_name WHERE n_surname = ?");
-$statement1->execute(array('@N.N.'));  
-$row1 = $statement1->fetch();
-$zahl1 = $row['anzahl'];
-$zahl2 = $row1['doppelt'];
-$personen = $zahl1 - $zahl2;
+$statement = $pdo->prepare("SELECT COUNT(*) AS anzahlpersonen FROM wt_individuals");
+$statement->execute();  
+$personen = $statement->fetch();
+//Anzahl der Männlicher Personen im Stammbaum
+$statement = $pdo->prepare("SELECT COUNT(*) AS sexm FROM wt_individuals WHERE i_sex = ?");
+$statement->execute(array('M'));  
+$sexm = $statement->fetch();
+//Anzahl der Weiblicher Personen im Stammbaum
+$statement = $pdo->prepare("SELECT COUNT(*) AS sexw FROM wt_individuals WHERE i_sex = ?");
+$statement->execute(array('F'));  
+$sexw = $statement->fetch();
 //Mediacount
-$statement = $pdo->prepare("SELECT COUNT(*) AS anzahl FROM wt_media");
+$statement = $pdo->prepare("SELECT COUNT(*) AS mediaanzahl FROM wt_media");
 $statement->execute();  
 $row = $statement->fetch(); { 
 //
+//Familycount
+$statement = $pdo->prepare("SELECT COUNT(*) AS family FROM wt_families");
+$statement->execute();  
+$family = $statement->fetch();
+//
+//Sourcescount
+$statement = $pdo->prepare("SELECT COUNT(*) AS quellen FROM wt_sources");
+$statement->execute();  
+$quellen = $statement->fetch();
+//
 echo "<tr>";  
-echo "<td>" . $personen . " Personen im Stammbaum</td>";  
+echo "<td>" .$personen['anzahlpersonen']. " Personen im Stammbaum</td>";  
+echo "</tr>"; 
+echo "<tr>";  
+echo "<td>" .$sexm['sexm']. " Männliche Personen</td>";  
+echo "</tr>"; 
+echo "<tr>";  
+echo "<td>" .$sexw['sexw']. " Weibliche Personen</td>";  
 echo "</tr>"; 
 echo "<tr>";
-echo "<td>" .$row['anzahl']. " Mediendateien (Bilder, Videos, Dokumente)</td>";  
-echo "</tr>";   
+echo "<td>" .$row['mediaanzahl']. " Mediendateien (Bilder, Videos, Dokumente)</td>";  
+echo "</tr>";
+echo "<tr>";
+echo "<td>" .$family['family']. " Familien</td>";  
+echo "</tr>";
+echo "<tr>";
+echo "<td>" .$quellen['quellen']. " Quellenangaben</td>";  
+echo "</tr>";
 }
 ?>
+</table>  
