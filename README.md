@@ -1,3 +1,4 @@
 # Webtrees-External-Statistics
 Script to view Webtrees Generalogy on external Websites.
-pre-Alpha
+Alpha
+DEMO: https://ollinet.org
