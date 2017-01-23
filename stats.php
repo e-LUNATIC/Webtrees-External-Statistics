@@ -1,12 +1,3 @@
-<?php
-/**
- * webtrees: online genealogy
- * Copyright (C) 2016 webtrees development team
- * Copyright (C) 2017 oliver erben https://ollinet.org>.
- */
-//Datenbank Einstellungen
-$pdo = new PDO('mysql:host=localhost;dbname=databasename', 'username', 'password');
-
 <!doctype html>  
 <html lang="de">  
 <head>  
@@ -23,7 +14,14 @@ $pdo = new PDO('mysql:host=localhost;dbname=databasename', 'username', 'password
 <table class='table table-hover'>  
 <tr>  
 </tr>  
-
+<?php
+/**
+ * webtrees: online genealogy
+ * Copyright (C) 2016 webtrees development team
+ * Copyright (C) 2017 oliver erben https://ollinet.org>.
+ */
+//Datenbank Einstellungen
+$pdo = new PDO('mysql:host=localhost;dbname=databasename', 'username', 'password');
 //Anzahl der Personen im Stammbaum
 $statement = $pdo->prepare("SELECT COUNT(*) AS anzahl FROM wt_name WHERE n_type = ?");
 $statement->execute(array('NAME'));  
