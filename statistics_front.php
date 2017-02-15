@@ -50,6 +50,11 @@ $statement = $pdo->prepare("SELECT COUNT(*) AS quellen FROM wt_sources");
 $statement->execute();  
 $quellen = $statement->fetch();
 //
+//Placecount
+$statement = $pdo->prepare("SELECT COUNT(*) AS orte FROM wt_places");
+$statement->execute();  
+$orte = $statement->fetch();
+//
 echo "<tr>";  
 echo "<td>" .$personen['anzahlpersonen']. " Personen im Stammbaum</td>";  
 echo "</tr>"; 
@@ -67,6 +72,9 @@ echo "<td>" .$family['family']. " Familien</td>";
 echo "</tr>";
 echo "<tr>";
 echo "<td>" .$quellen['quellen']. " Quellenangaben</td>";  
+echo "</tr>";
+echo "<tr>";
+echo "<td>" .$orte['orte']. " Wohnorte</td>";  
 echo "</tr>";
 }
 ?>
