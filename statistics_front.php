@@ -4,7 +4,7 @@
 <meta charset="utf-8">  
 <meta name="viewport" content="width=device-width, initial-scale=1">  
 <title>Webtrees Datenbankstatistiken | lioe.net</title>  
-<meta name="description" content="Webtrees Datenbankstatistiken | ollinet.org">  
+<meta name="description" content="Webtrees Datenbankstatistiken | lioe.net">  
 <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> -->
 </head>  
 <body>  
